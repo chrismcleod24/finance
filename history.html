@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    history
+{% endblock %}
+
+{% block main %}
+<main class="container p-5">
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>transacted</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in stock %}
+                <tr>
+                    <td>{{ row.symbol }}</td>
+                    <td>{{ row.shares }}</td>
+                    <td>{{ row.price | usd }}</td>
+                    <td>{{ row.time }}</td>
+            {% endfor %}
+                </tr>
+        </tbody>
+    </table>
+</main>
+{% endblock %}
